@@ -1,3 +1,7 @@
+# a entrada do CPF precisa ser no fomato 000.000.000-00
+# @Evandro Avellar
+# 07/02/2019
+
 while True:
     try:
                 
