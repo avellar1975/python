@@ -34,3 +34,20 @@ def calcula_inss(salario):
     elif faixa[3] < salario:
         contribuicao = 713.08
     return round(contribuicao, 2)
+
+
+def calcula_irpf(salario, dependentes):
+    deducao = dependentes * 189.59
+    base = salario - calcula_inss(salario) - deducao
+    print(f'Base de cálculo: {base}')
+    if base <= 1903.98:
+        irpf = 0
+    elif 1903.99 <= base < 2826.66:
+        irpf = (base - 1903.98) * (7.5/100) - 142.80
+    elif 2826.66 <= base < 3751.06:
+        irpf = base * (15/100) - 354.80
+    elif 3751.06 <= base < 4664.68:
+        irpf = base * (22.5/100) - 636.13
+    elif base > 4664.88:
+        irpf = base * (27.5/100) - 869.36
+    return round(irpf, 2)
